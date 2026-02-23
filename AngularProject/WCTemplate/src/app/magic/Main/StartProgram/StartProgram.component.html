@@ -4,6 +4,74 @@
     <!-- ------------------------- Logged in Area ------------------------- -->
 
     <div *ngIf="mg.getCustomProperty('StartProgram', 'isLoggedIn') == 'Y'">
+
+      <!-- ============ Mobile Header (visible only on small screens) ============ -->
+      <div class="mobile-header d-flex align-items-center justify-content-between d-sm-none">
+        <a routerLink="/" class="mobile-header-logo">
+          <img src="https://www.magicsoftware.com/wp-content/uploads/2018/05/magic-logo-blue@3x.png"
+            alt="Magic Software" class="mobile-logo-img" />
+        </a>
+        <label class="mobile-header-greeting">
+          <b>שלום,</b>&nbsp;[username here]
+        </label>
+        <button class="mobile-hamburger" (click)="toggleMobileMenu()" aria-label="תפריט">
+          <i class="fa-solid" [ngClass]="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+        </button>
+      </div>
+
+      <!-- ============ Mobile Full-Screen Overlay Menu ============ -->
+      <div class="mobile-overlay d-sm-none" [class.open]="mobileMenuOpen">
+
+        <!-- Header -->
+        <div class="mobile-overlay-header">
+          <span class="mobile-overlay-title">תפריט</span>
+          <button class="mobile-overlay-close" (click)="toggleMobileMenu()" aria-label="סגור תפריט">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Parent navigation buttons (mirror of desktop navbar-itembox) -->
+        <div class="mobile-nav-buttons">
+          <button class="mobile-nav-btn" [class.mobile-nav-btn--active]="mobileActiveMenu === 0"
+                  [magic]="mgc.bMenu1" (click)="onMobileParentClick(0)">
+            <i class="fa fa-hamburger mobile-nav-btn-icon"></i>
+            <span>תפריט 1</span>
+          </button>
+          <button class="mobile-nav-btn" [class.mobile-nav-btn--active]="mobileActiveMenu === 1"
+                  [magic]="mgc.bMenu1" (click)="onMobileParentClick(1)">
+            <i class="fa fa-folder mobile-nav-btn-icon"></i>
+            <span>תפריט 2</span>
+          </button>
+          <button class="mobile-nav-btn" [class.mobile-nav-btn--active]="mobileActiveMenu === 2"
+                  [magic]="mgc.bMenu1" (click)="onMobileParentClick(2)">
+            <i class="fa fa-phone mobile-nav-btn-icon"></i>
+            <span>תפריט 3</span>
+          </button>
+        </div>
+
+        <!-- Accordion sub-menu (expands below the active parent) -->
+        <div class="mobile-overlay-menu" *ngIf="mobileActiveMenu !== null">
+          <side-menu [source]="mg.getCustomProperty('StartProgram', 'Menu')"
+                     (leafClick)="closeMobileMenu()"></side-menu>
+        </div>
+
+        <!-- Spacer pushes footer down -->
+        <div class="mobile-overlay-spacer"></div>
+
+        <!-- Footer: logout + watermark -->
+        <div class="mobile-overlay-footer">
+          <div class="mobile-overlay-logout" [magic]="mgc.bLogout" (click)="closeMobileMenu()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>התנתקות</span>
+          </div>
+          <div class="mobile-overlay-watermark">
+            <img src="https://www.magicsoftware.com/wp-content/uploads/2018/05/magic-logo-blue@3x.png"
+                 alt="Magic Software" class="mobile-watermark-img" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ Desktop Navbar (hidden on mobile via existing CSS) ============ -->
       <div class="navbar-right">
         <a routerLink="/" class="navbar-logo" [matTooltip]="mg.getCustomProperty('StartProgram', 'Version')">
           <!-- Replace with company icon -->
@@ -68,26 +136,45 @@
 
     <!-- ------------------------- Login Area ------------------------- -->
 
-    <div *ngIf="mg.getCustomProperty('StartProgram', 'isLoggedIn') != 'Y'" class="login-container">
-      <label class="login-title">התחברות למערכת</label>
+    <div *ngIf="mg.getCustomProperty('StartProgram', 'isLoggedIn') != 'Y'" class="login-page">
+      <div class="login-container">
 
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>קוד משתמש</mat-label>
-        <input matInput mgFormat type='text' name="username" autocomplete="username" id="username"
-          [magic]="mgc.vUsername" [formControlName]="mgc.vUsername" (blur)="SetValue()"
-          (keydown.enter)="UpdateAndLogin()">
-      </mat-form-field>
+        <!-- Brand icon -->
+        <div class="login-brand">
+          <div class="login-logo-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+        </div>
 
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>סיסמה</mat-label>
-        <input matInput type='password' mgFormat name="password" autocomplete="current-password" id="password"
-          [magic]="mgc.vPassword" [formControlName]="mgc.vPassword" (blur)="SetValue()"
-          (keydown.enter)="UpdateAndLogin()">
-      </mat-form-field>
+        <!-- Header text -->
+        <div class="login-header">
+          <h1 class="login-title">ברוכים הבאים</h1>
+          <p class="login-subtitle">יש להזין את פרטי ההתחברות</p>
+        </div>
 
-      <button [magic]="mgc.bLogin" class="action-button w-100" style="width: 100%" id="LoginButton">
-        התחברות
-      </button>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>קוד משתמש</mat-label>
+          <input matInput mgFormat type='text' name="username" autocomplete="username" id="username"
+            [magic]="mgc.vUsername" [formControlName]="mgc.vUsername" (blur)="SetValue()"
+            (keydown.enter)="UpdateAndLogin()">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>סיסמה</mat-label>
+          <input matInput type='password' mgFormat name="password" autocomplete="current-password" id="password"
+            [magic]="mgc.vPassword" [formControlName]="mgc.vPassword" (blur)="SetValue()"
+            (keydown.enter)="UpdateAndLogin()">
+        </mat-form-field>
+
+        <button [magic]="mgc.bLogin" class="action-button w-100 login-submit-btn" id="LoginButton">
+          התחברות
+        </button>
+
+      </div>
     </div>
   </div>
 </div>

@@ -46,7 +46,7 @@ export class SelectCustomer
   private static readonly x: number = 0;
   private static readonly y: number = 0;
   private static readonly width: string = '30vw';
-  private static readonly height: string = '74vh';
+  private static readonly height: string = '80vh';
   private static readonly isCenteredToWindow: boolean = true;
   private static readonly shouldCloseOnBackgroundClick = false;
   X() {

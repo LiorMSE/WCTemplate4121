@@ -1,0 +1,65 @@
+.sideMenu {
+  overflow: visible;
+}
+
+a {
+  font-size: 0;
+  margin: 0;
+  height: 0;
+  text-decoration: none;
+}
+
+.father_li {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 13pt;
+  color: var(--mainColor);
+  background-color: #FFFFFF;
+  display: block;
+  cursor: pointer;
+  text-align: right;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.father_li:hover {
+  background-color: #FFFFFF;
+}
+
+.child_li {
+  font-size: 13pt;
+  color: rgb(42, 42, 53);
+  text-align: right;
+  text-decoration: none;
+  margin: 0 !important;
+  padding: 5px 10px;
+  width: 100%;
+  background-color: transparent !important;
+  margin-bottom: 4px !important;
+  margin: 0;
+}
+
+.child_li:hover {
+  background-color: #EDF3F9 !important;
+  font-weight: bold;
+}
+
+.selected {
+  background-color: #EDF3F9 !important;
+}
+
+.dropdownIcon {
+  float: left;
+  font-size: 25px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 1px;
+}
+
+.onOff {
+  display: none;
+}

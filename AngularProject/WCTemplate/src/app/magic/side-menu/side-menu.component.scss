@@ -25,7 +25,13 @@ a {
 }
 
 .father_li:hover {
-  background-color: #FFFFFF;
+  background-color: #EDF3F9;
+}
+
+.father_li.active {
+  background-color: #EDF3F9;
+  font-weight: 700;
+  border-inline-start: 3px solid var(--primary, #3282ea);
 }
 
 .child_li {

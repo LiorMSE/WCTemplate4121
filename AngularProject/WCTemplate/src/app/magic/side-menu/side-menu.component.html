@@ -2,11 +2,11 @@
   <LI *ngFor="let item of _source">
     <span *ngIf="item.Menus" (click)="liToggle(item,$event)">
 
-      <div class="father_li" (click)="ToggleList($event)">
+      <div class="father_li" [class.active]="item.isOpen" (click)="ToggleList($event)">
         {{item.Name}}
-        <i class="fa fa-angle-down dropdownIcon"></i>
+        <i class="fa dropdownIcon" [ngClass]="item.isOpen ? 'fa-angle-up' : 'fa-angle-down'"></i>
       </div>
-      <side-menu [source]="item.Menus" [class.onOff]="!item.isOpen"></side-menu>
+      <side-menu [source]="item.Menus" [class.onOff]="!item.isOpen" (leafClick)="leafClick.emit()"></side-menu>
     </span>
     <a *ngIf="!item.Menus" [routerLink]=item.url (click)="aClick($event)">
       <div class="child_li">

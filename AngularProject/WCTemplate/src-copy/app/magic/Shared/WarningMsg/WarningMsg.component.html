@@ -1,0 +1,25 @@
+<div novalidate [formGroup]="screenFormGroup" class="warning-message">
+  <div [magic]="mgc.WarningMsg">
+    <div class="overlay-bar">
+      <span [magic]="mgc.pTitle">
+        {{mg.getValue(mgc.pTitle)}}
+      </span>
+    </div>
+
+    <div class="warning-text" [magic]="mgc.pMsg">
+      {{mg.getValue(mgc.pMsg)}}
+    </div>
+
+    <div class="buttons-container always-bottom">
+      <button *ngIf="mg.getValue(mgc.bBtn2) !== ''" class="action-button cancel-button" [magic]="mgc.bBtn2"
+        [style.visibility]="mg.getVisible(mgc.bBtn2)">
+        {{mg.getValue(mgc.bBtn2)}}
+      </button>
+
+      <button class="action-button" [magic]="mgc.bBtn1">
+        {{mg.getValue(mgc.bBtn1)}}
+      </button>
+    </div>
+
+  </div>
+</div>

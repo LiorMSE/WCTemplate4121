@@ -6,7 +6,7 @@
     </div>
 
     <ng-template #customerExists>
-      <div style="width: 20vw">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
         <label class="page-title">פרטי הלקוח</label>
         <div class="row">
           <!-- We've used px-1 to add padding to each cell to get the same effect of css gap property -->
@@ -17,19 +17,19 @@
             </mat-form-field>
           </div>
 
-          <div class="col-9 px-1">
+          <div class="col-12 col-sm-9 px-1">
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>אימייל</mat-label>
               <input matInput type='text' [value]="mg.getValue(mgc.CustomerEmail)" mgFormat readonly>
             </mat-form-field>
           </div>
-          <div class="col-3 px-1">
+          <div class="col-12 col-sm-3 px-1 d-flex align-items-center">
             <mat-checkbox [magic]="mgc.IsActive" [formControlName]="mgc.IsActive" class="disabled-input">
               פעיל
             </mat-checkbox>
           </div>
 
-          <div class="col-6 px-1">
+          <div class="col-12 col-sm-6 px-1">
             <mat-form-field [magic]="mgc.CustomerCreateDate" appearance="outline" class="w-100">
               <mat-label>תאריך יצירה</mat-label>
               <input matInput [matDatepicker]="CustomerCreateDate" [value]="mg.getValue(mgc.CustomerCreateDate)"
@@ -37,7 +37,7 @@
               <mat-datepicker #CustomerCreateDate></mat-datepicker>
             </mat-form-field>
           </div>
-          <div class="col-6 px-1">
+          <div class="col-12 col-sm-6 px-1">
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>שעת יצירה</mat-label>
               <input matInput [value]="mg.getValue(mgc.CustomerCreateTime)" [maskito]="mg.hhmmss" readonly>

@@ -27,6 +27,24 @@ export class StartProgram extends TaskBaseMagicComponent {
   }
 
   LastObj!: any;
+  mobileMenuOpen = false;
+  mobileActiveMenu: number | null = null;
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+    if (!this.mobileMenuOpen) {
+      this.mobileActiveMenu = null;
+    }
+  }
+
+  closeMobileMenu(): void {
+    this.mobileMenuOpen = false;
+    this.mobileActiveMenu = null;
+  }
+
+  onMobileParentClick(index: number): void {
+    this.mobileActiveMenu = this.mobileActiveMenu === index ? null : index;
+  }
 
   HighLightMenu(obj: any): void {
     const navbarItemBox = obj.currentTarget.closest(

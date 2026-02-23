@@ -1,0 +1,78 @@
+<div novalidate [formGroup]="screenFormGroup">
+  <div [magic]="mgc.SelectCustomer">
+
+    <div class="overlay-bar">
+      <span>
+        בחירת לקוח
+      </span>
+    </div>
+
+
+    <div class="row m-2">
+      <div class="col-4">
+        <div class="searchbox-container">
+          <i class="fa fa-search"></i>
+          <input matInput type='text' matInput [magic]="mgc.vSearch" [formControlName]="mgc.vSearch" mgFormat
+            placeholder="חפש..." class="InputSize" [pollTime]="400">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="table-wrapper m-2">
+
+      <mat-table #table [dataSource]="dataSource" class="container_border" matSort matSortDisableClear
+        (matSortChange)="tableService.sortData($event)">
+        <ng-container [magic]="mgc.cName" [matColumnDef]="mgc.cName">
+          <mat-header-cell *matHeaderCellDef class="col-8">
+            שם
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" magicMark="magicTableRowContainer" class="col-8">
+            <div *ngIf="mg.ifRowCreated(row)">
+              {{mg.getValue(mgc.CustomerName, row.rowId) }}
+            </div>
+          </mat-cell>
+        </ng-container>
+        <ng-container [magic]="mgc.cActive" [matColumnDef]="mgc.cActive">
+          <mat-header-cell *matHeaderCellDef class="col-2">
+            פעיל
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" magicMark="magicTableRowContainer" class="col-2">
+            <div *ngIf="mg.ifRowCreated(row)">
+              <div [formGroup]="mg.getFormGroupByRow(row.rowId)">
+                <mat-checkbox [magic]="mgc.Active" [rowId]="row.rowId" [formControlName]="mgc.Active">
+                </mat-checkbox>
+              </div>
+            </div>
+          </mat-cell>
+        </ng-container>
+        <ng-container [magic]="mgc.Column7" [matColumnDef]="mgc.Column7">
+          <mat-header-cell *matHeaderCellDef class="col-2 cActions">
+            בחירה
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" magicMark="magicTableRowContainer" class="col-2 cBtn">
+            <div *ngIf="mg.ifRowCreated(row)">
+              <button class="tbl_btn" [magic]="mgc.bSelect" [rowId]="row.rowId" matTooltip="בחירה"
+                [disabled]="mg.isDisabled(mgc.bSelect, row.rowId)">
+                <i class="fa fa-check"></i>
+              </button>
+            </div>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" class="table_row"
+          [ngClass]="{ 'selected': selection.isSelected(row)}" [magicRow]="row?.rowId"
+          (click)="row? tableService.selectRow(row.rowId) : null">
+        </mat-row>
+      </mat-table>
+      <mat-paginator #paginator [pageSize]="15" (page)="tableService.mgOnPaginateChange($event)">
+      </mat-paginator>
+    </div>
+
+    <div class="buttons-container my-2">
+      <button class="action-button cancel-button" accesskey="ב" [magic]="mgc.bCancel">
+        ביטול
+      </button>
+    </div>
+  </div>
+</div>

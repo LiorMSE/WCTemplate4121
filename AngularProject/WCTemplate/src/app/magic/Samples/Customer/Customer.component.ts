@@ -46,7 +46,7 @@ export class Customer
   private static readonly x: number = 0;
   private static readonly y: number = 0;
   private static readonly width: string = 'fit-content';
-  private static readonly height: string = '60vh';
+  private static readonly height: string = '70vh';
   private static readonly isCenteredToWindow: boolean = true;
   private static readonly shouldCloseOnBackgroundClick = false;
   X() {

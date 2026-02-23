@@ -1,0 +1,93 @@
+<div novalidate [formGroup]="screenFormGroup">
+  <div [magic]="mgc.StartProgram">
+
+    <!-- ------------------------- Logged in Area ------------------------- -->
+
+    <div *ngIf="mg.getCustomProperty('StartProgram', 'isLoggedIn') == 'Y'">
+      <div class="navbar-right">
+        <a routerLink="/" class="navbar-logo" [matTooltip]="mg.getCustomProperty('StartProgram', 'Version')">
+          <!-- Replace with company icon -->
+          <img src="https://www.magicsoftware.com/wp-content/uploads/2018/05/magic-logo-blue@3x.png"
+            alt="Magic Software" class="magic-notificon" />
+        </a>
+
+        <!-- Optional -
+          hide the menu with a condition:
+          *ngIf="mg.getCustomProperty('StartProgram', 'Menu1') != 'N'"
+        -->
+        <div class="navbar-itembox" (click)="HighLightMenu($event)" [magic]="mgc.bMenu1">
+          <i class="fa fa-hamburger navbar-icon"></i>
+          <label class="navbar-item">תפריט 1</label>
+        </div>
+
+        <div class="navbar-itembox" (click)="HighLightMenu($event)" [magic]="mgc.bMenu1">
+          <i class="fa fa-folder navbar-icon"></i>
+          <label class="navbar-item">תפריט 2</label>
+        </div>
+
+        <div class="navbar-itembox" (click)="HighLightMenu($event)" [magic]="mgc.bMenu1">
+          <i class="fa fa-phone navbar-icon"></i>
+          <label class="navbar-item">תפריט 3</label>
+        </div>
+
+      </div>
+
+      <div class="main">
+        <div class="navbar-top">
+          <div class="notifications">
+            <div [magic]="mgc.bLogout" class="icon-link">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </div>
+            <div>
+              <span [style.visibility]="mg.getCustomProperty('StartProgram', 'OpenTasks') == 0 ? 'hidden' : 'visible'"
+                matTooltip="ההתראות שלי">
+                <span class="badge-content ">
+                  {{ mg.getCustomProperty('StartProgram', 'OpenTasks') }}
+                </span>
+              </span>
+
+              <i class="fa-regular fa-bell icon"></i>
+            </div>
+
+
+            <span class="splitter" style="color: var(--border-color)">|</span>
+            <label class="employee d-flex align-items-center">
+              <b>שלום,</b>&nbsp;[username here] 👋🏼
+            </label>
+          </div>
+        </div>
+        <div class="main-outlet">
+          <router-outlet [magic]="mgc.MainOutlet"> </router-outlet>
+        </div>
+      </div>
+
+      <div id="side-nav" #SideNav class="side-nav side-nav-state" (mouseleave)="closeMenu()">
+        <side-menu [source]="mg.getCustomProperty('StartProgram', 'Menu')"></side-menu>
+      </div>
+    </div>
+
+    <!-- ------------------------- Login Area ------------------------- -->
+
+    <div *ngIf="mg.getCustomProperty('StartProgram', 'isLoggedIn') != 'Y'" class="login-container">
+      <label class="login-title">התחברות למערכת</label>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>קוד משתמש</mat-label>
+        <input matInput mgFormat type='text' name="username" autocomplete="username" id="username"
+          [magic]="mgc.vUsername" [formControlName]="mgc.vUsername" (blur)="SetValue()"
+          (keydown.enter)="UpdateAndLogin()">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>סיסמה</mat-label>
+        <input matInput type='password' mgFormat name="password" autocomplete="current-password" id="password"
+          [magic]="mgc.vPassword" [formControlName]="mgc.vPassword" (blur)="SetValue()"
+          (keydown.enter)="UpdateAndLogin()">
+      </mat-form-field>
+
+      <button [magic]="mgc.bLogin" class="action-button w-100" style="width: 100%" id="LoginButton">
+        התחברות
+      </button>
+    </div>
+  </div>
+</div>

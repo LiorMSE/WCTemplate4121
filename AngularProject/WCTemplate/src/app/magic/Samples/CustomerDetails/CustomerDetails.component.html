@@ -3,7 +3,7 @@
 
     <div class="row">
       <!-- We've used px-1 to add padding to each cell to get the same effect of css gap property -->
-      <div class="col-3 px-1">
+      <div class="col-12 col-sm-6 col-md-3 px-1 mb-2 mb-md-0">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>אימייל</mat-label>
           <input matInput type='text' [magic]="mgc.vEmail" [formControlName]="mgc.vEmail" [matAutocomplete]="vEmail"
@@ -21,7 +21,7 @@
         </mat-form-field>
       </div>
 
-      <div class="col-2 px-1">
+      <div class="col-12 col-sm-6 col-md-2 px-1 mb-2 mb-md-0">
         <mat-form-field [magic]="mgc.vCreateDate" appearance="outline" class="w-100">
           <mat-label>תאריך יצירה</mat-label>
           <input matInput [matDatepicker]="vCreateDate" [magic]="mgc.vCreateDate" [formControlName]="mgc.vCreateDate"
@@ -30,13 +30,13 @@
           <mat-datepicker #vCreateDate></mat-datepicker>
         </mat-form-field>
       </div>
-      <div class="col-2 px-1">
+      <div class="col-6 col-sm-6 col-md-2 px-1 mb-2 mb-md-0">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>שעת יצירה</mat-label>
           <input matInput [magic]="mgc.vCreateTime" [formControlName]="mgc.vCreateTime" [maskito]="mg.hhmmss">
         </mat-form-field>
       </div>
-      <div class="col-2 px-1">
+      <div class="col-6 col-sm-4 col-md-2 px-1 mb-2 mb-md-0">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>פעיל</mat-label>
           <mat-select [magic]="mgc.vActive" [formControlName]="mgc.vActive">
@@ -46,13 +46,13 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="col-1 px-1">
+      <div class="col-6 col-sm-4 col-md-1 px-1 mb-2 mb-md-0 d-flex align-items-center">
         <mat-checkbox [magic]="mgc.vActive" [formControlName]="mgc.vActive">
           פעיל
         </mat-checkbox>
       </div>
-      <div class="col-2 px-1">
-        <button class="action-button input-height" [magic]="mgc.bSave">
+      <div class="col-6 col-sm-4 col-md-2 px-1 mb-2 mb-md-0">
+        <button class="action-button input-height w-100" [magic]="mgc.bSave">
           שמירה
         </button>
       </div>

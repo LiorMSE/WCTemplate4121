@@ -4,14 +4,42 @@ $my-primary-palette: mat.m2-define-palette(mat.$m2-blue-palette);
 $my-accent-palette: mat.m2-define-palette(mat.$m2-pink-palette);
 $my-warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
 
+$my-typography: mat.m2-define-typography-config($font-family: 'Assistant',
+    $body-1: mat.m2-define-typography-level(14px, 24px, 500));
+
 $my-theme: mat.m2-define-light-theme((color: (primary: $my-primary-palette,
         accent: $my-accent-palette,
         warn: $my-warn-palette,
       ),
-      density: -5,
+      typography: $my-typography,
+      density: -2,
     ));
 
 @include mat.elevation-classes();
 @include mat.app-background();
-
 @include mat.all-component-themes($my-theme);
+
+html {
+  --mdc-outlined-text-field-container-shape: 10px;
+
+  --mdc-outlined-text-field-outline-width: 2px;
+  --mdc-outlined-text-field-hover-outline-width: 2px;
+  --mdc-outlined-text-field-focus-outline-width: 2px;
+
+  --mdc-outlined-text-field-outline-color: #e5e7eb;
+  --mdc-outlined-text-field-hover-outline-color: #d1d5db;
+  --mdc-outlined-text-field-focus-outline-color: #667eea;
+
+  --mdc-outlined-text-field-focus-label-text-color: #667eea;
+
+  --mdc-outlined-text-field-container-color: #ffffff;
+  --mdc-outlined-text-field-input-text-color: #1f2937;
+}
+
+.mat-mdc-text-field-wrapper {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mat-mdc-form-field:hover .mat-mdc-text-field-wrapper {
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+}

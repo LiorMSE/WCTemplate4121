@@ -2,7 +2,7 @@
   <div [magic]="mgc.CustomersListTable">
 
     <!-- is mobile is defined in the ts code -->
-    <div class="table-wrapper twenty-rows" [hidden]="isMobile">
+    <div class="table-wrapper twenty-rows w-100" [hidden]="isMobile">
       <mat-table #table [dataSource]="dataSource" matSort matSortDisableClear
         (matSortChange)="tableService.sortData($event)">
 
@@ -103,7 +103,7 @@
           (click)="row? tableService.selectRow(row.rowId) : null">
         </mat-row>
       </mat-table>
-      <mat-paginator #paginator [pageSize]="20" (page)="tableService.mgOnPaginateChange($event)"></mat-paginator>
+      <mat-paginator #paginator [pageSize]="3" (page)="tableService.mgOnPaginateChange($event)"></mat-paginator>
     </div>
 
     <div *ngFor="let row of dataSource.data" class="MobileCardContainer" [hidden]="!isMobile">

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { ToggleSideNav } from '../../Utils/toggle-side-nav';
 
@@ -27,6 +27,9 @@ export class SideMenuComponent {
     }
   }
 
+  /** Emitted when a leaf (navigable) item is clicked. */
+  @Output() leafClick = new EventEmitter<void>();
+
   liToggle(item: any, e: MouseEvent) {
     item.isOpen = !item.isOpen;
     e.stopPropagation();
@@ -34,11 +37,11 @@ export class SideMenuComponent {
 
   aClick(e: MouseEvent) {
     ToggleSideNav();
+    this.leafClick.emit();
     e.stopPropagation();
   }
 
   ToggleList(e: MouseEvent) {
-    selectedElement: HTMLElement;
     const clickedListItem = e.target as HTMLElement;
     clickedListItem.classList.toggle('selected');
   }

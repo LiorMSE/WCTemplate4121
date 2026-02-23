@@ -2,8 +2,8 @@
   <div [magic]="mgc.CustomersList">
 
     <div class="table-container">
-      <div class="row pb-2">
-        <div class="col-12 col-md-2">
+      <div class="row pb-2 align-items-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2 mb-md-0">
           <div class="searchbox-container">
             <i class="fa fa-search"></i>
             <input matInput type='text' matInput [magic]="mgc.vSearch" [formControlName]="mgc.vSearch" mgFormat
@@ -11,7 +11,7 @@
           </div>
         </div>
 
-        <div class="col-4 col-md-1 px-2">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 px-2 mb-2 mb-md-0">
           <!-- no-parent class is used for elements without a parent element to inherit background color from -->
           <mat-form-field appearance="outline" class="w-100 no-parent">
             <mat-label>פעיל</mat-label>
@@ -36,8 +36,7 @@
                     </mat-form-field>
                 </div> -->
 
-        <!-- This div is set to col-md-3 to match the width of the table below at col-6 -->
-        <div class="col-3 col-md-3 px-1">
+        <div class="col-6 col-sm-2 col-md-2 col-lg-2 px-1">
           <button class="table-header-button" [magic]="mgc.bAdd">
             <i class="fa-solid fa-circle-plus"></i>
             <label class="header-button-label">הוספה</label>
@@ -45,7 +44,7 @@
         </div>
       </div>
       <div class="row">
-        <magic-subform [magic]="mgc.sTable" class="col-12 col-md-6">
+        <magic-subform [magic]="mgc.sTable" class="col-12">
         </magic-subform>
       </div>
     </div>

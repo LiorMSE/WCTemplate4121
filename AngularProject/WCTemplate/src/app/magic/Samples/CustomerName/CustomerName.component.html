@@ -1,33 +1,39 @@
 <div novalidate [formGroup]="screenFormGroup">
   <div [magic]="mgc.CustomerName">
-    <div class="d-flex justify-content-evenly">
-      <mat-form-field appearance="outline">
-        <mat-label>שם הלקוח</mat-label>
-        <!--
-                Add to the input:
-                1. oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-                Will only allow to input numbers
-                2. oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'')"
-                Will only allow to input english text
-                3. oninput="this.value=this.value.replace(/[^a-zA-Z\u0590-\u05FF\s]/g,'')"
-                Will only allow to input english and hebrew text
-                  -->
-        <input matInput type='text' [magic]="mgc.vName" [formControlName]="mgc.vName" mgFormat maxlength="100"
-          oninput="this.value=this.value.replace(/[^a-zA-Z\u0590-\u05FF\s]/g,'')">
-      </mat-form-field>
+    <div class="row align-items-center">
+      <div class="col-12 col-sm-5 col-md-4 px-1 mb-2 mb-md-0">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>שם הלקוח</mat-label>
+          <!--
+                  Add to the input:
+                  1. oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                  Will only allow to input numbers
+                  2. oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'')"
+                  Will only allow to input english text
+                  3. oninput="this.value=this.value.replace(/[^a-zA-Z\u0590-\u05FF\s]/g,'')"
+                  Will only allow to input english and hebrew text
+                    -->
+          <input matInput type='text' [magic]="mgc.vName" [formControlName]="mgc.vName" mgFormat maxlength="100"
+            oninput="this.value=this.value.replace(/[^a-zA-Z\u0590-\u05FF\s]/g,'')">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>לקוח אב</mat-label>
-        <div class="LookUpDiv"></div>
-        <input matInput type='text' [value]="mg.getValue(mgc.ParentName)" mgFormat readonly>
-        <span class="LookUpSpan" [magic]="mgc.bSelectParent">
-          <i class="fa fa-search"></i>
-        </span>
-      </mat-form-field>
+      <div class="col-12 col-sm-5 col-md-4 px-1 mb-2 mb-md-0">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>לקוח אב</mat-label>
+          <div class="LookUpDiv"></div>
+          <input matInput type='text' [value]="mg.getValue(mgc.ParentName)" mgFormat readonly>
+          <span class="LookUpSpan" [magic]="mgc.bSelectParent">
+            <i class="fa fa-search"></i>
+          </span>
+        </mat-form-field>
+      </div>
 
-      <button class="action-button input-height" [magic]="mgc.bSave">
-        שמירה
-      </button>
+      <div class="col-12 col-sm-2 col-md-2 px-1 mb-2 mb-md-0">
+        <button class="action-button input-height w-100" [magic]="mgc.bSave">
+          שמירה
+        </button>
+      </div>
     </div>
   </div>
 </div>

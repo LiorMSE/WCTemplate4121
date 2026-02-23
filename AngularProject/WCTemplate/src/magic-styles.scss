@@ -39,7 +39,6 @@
   --TableRowContent: #1f2937;
   --TableRowHover: #f3f4ff;
   --TableRowSelected: #e0e7ff;
-
   /* Overlays & checkboxes */
   --overlaybar-bg: var(--primary);
   --checkbox-bg: #667eea;
@@ -198,7 +197,6 @@ body {
 /* ---------- Auth / Login ---------- */
 
 .login-container {
-  margin: 10vh auto 0 auto !important;
   width: min(420px, 90vw) !important;
   padding: 2.5rem 2.25rem !important;
   display: flex;
@@ -263,30 +261,19 @@ body {
 }
 
 .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
-  margin-top: 0vh !important;
-  padding-bottom: 3vh !important;
+  display: flex;
   align-items: center;
-  min-height: 3vh !important;
-  max-height: 3vh !important;
-}
-
-.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix:has(textarea) {
-  max-height: fit-content !important;
-}
-
-.mdc-notched-outline__notch>label:not(.mdc-floating-label--float-above) {
-  padding-bottom: 1.3vh !important;
 }
 
 .mat-mdc-form-field-subscript-wrapper {
-  height: 2vh !important;
+  height: 1rem !important;
 }
 
 mgError {
   position: relative;
-  top: 0.5vh;
+  top: 0.25rem;
   color: red !important;
-  font-size: 11pt;
+  font-size: 0.7rem;
 }
 
 /* Search Input */
@@ -294,7 +281,7 @@ mgError {
   position: relative;
   display: flex;
   align-self: center;
-  height: 3.9vh !important;
+  height: 2.4rem;
 }
 
 .searchbox-container>svg {
@@ -310,7 +297,7 @@ mgError {
   border: 2px solid #e5e7eb;
   border-radius: 10px;
   background-color: #ffffff;
-  padding: 4px 3vw 4px 0.5vw;
+  padding: 4px 2.5rem 4px 0.5rem;
   font-weight: 500;
   font-size: 14px;
   color: #1f2937;
@@ -347,7 +334,7 @@ mgError {
 
   color: var(--action-button-color) !important;
   background-color: var(--primary);
-  gap: 0 0.2vw;
+  gap: 0 0.25rem;
   border-radius: var(--radius-lg) !important;
   border: 2px solid transparent;
   font-size: 0.9rem;
@@ -357,7 +344,7 @@ mgError {
   margin: 0;
   transition: all ease 0.3s;
   padding: 0.25rem 0.8rem;
-  height: 3.9vh;
+  height: 2.4rem;
 }
 
 .table-header-button:hover {
@@ -392,6 +379,9 @@ mgError {
   box-shadow: var(--shadow-card);
   background: var(--surface-elevated);
   transition: box-shadow 0.3s ease;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table-wrapper:hover {
@@ -404,8 +394,10 @@ mgError {
 
 mat-table {
   height: 50vh;
+  overflow-y: auto;
   border-radius: var(--inside-table-border-radius);
   background: white;
+  min-width: 500px;
 }
 
 .ten-rows>mat-table {
@@ -547,16 +539,17 @@ mat-paginator {
 .overlay-bar {
   background: linear-gradient(90deg, var(--overlaybar-bg) 0%, #1e40af 100%);
   width: 100%;
-  height: 4.5vh;
+  min-height: 2.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   border-radius: 10px 10px 0 0;
-  font-size: 15pt;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
   font-weight: 700;
   border: 0;
   color: #fff;
+  padding: 0.25rem 0.5rem;
 }
 
 .modal-foreground {
@@ -573,7 +566,7 @@ mat-paginator {
 
 .modal-foreground .row {
   --bs-gutter-x: 0;
-  --bs-gutter-y: 0.5vh;
+  --bs-gutter-y: 0.25rem;
   overflow: hidden !important;
 }
 
@@ -581,6 +574,9 @@ mat-paginator {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
 }
 
 /* Checkbox */
@@ -612,7 +608,7 @@ mat-paginator {
 .cActions {
   display: flex;
   justify-content: center;
-  padding: 0 1vw;
+  padding: 0 0.75rem;
 }
 
 
@@ -630,8 +626,8 @@ mat-paginator {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 1.6rem;
-  min-width: 7rem;
+  padding: 0.45rem 1rem;
+  min-width: 0;
   min-height: 2.2rem;
   border-radius: 0.75rem 0.75rem 0 0;
   border: 0;
@@ -728,7 +724,7 @@ textarea {
 .grid {
   display: grid;
   grid-template-columns: repeat(var(--columns, 2), auto);
-  gap: 1vh 1vw;
+  gap: 0.5rem;
 }
 
 .LookUpDiv {
@@ -757,26 +753,29 @@ textarea {
 
 .always-bottom {
   position: absolute;
-  bottom: 2vh;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 0.625rem;
+  width: 90%;
+  max-width: 400px;
 }
 
 /* Responsive design for mobile phones */
 @media (max-width: 575.98px) {
   .searchbox-container>input {
-    padding-right: 6vw;
+    padding-right: 2.5rem;
   }
 }
 
 .MobileCardContainer {
   border-radius: var(--outside-table-border-radius) !important;
   background-color: var(--TableRow);
-  margin: 1vh 2vw;
-  padding: 1vh 1.5rem;
+  margin: 0.5rem;
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-sm);
 
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -788,7 +787,7 @@ textarea {
 
 .mobile-actions-container {
   position: absolute;
-  left: 5vw;
+  left: 1rem;
 }
 
 .Actions {
@@ -814,8 +813,22 @@ textarea {
 }
 
 .mat-mdc-form-field-subscript-wrapper {
-  min-height: 0.5vh !important;
-  max-height: 0.5vh !important;
+  min-height: 0.25rem !important;
+  max-height: 0.25rem !important;
+}
+
+.no-parent {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.mat-mdc-text-field-wrapper {
+  border-radius: 10px !important;
+  border: none !important;
+}
+
+.no-parent:hover .mat-mdc-button-state-layer {
+  border-radius: 30px !important;
 }
 
 .no-parent .mat-mdc-form-field-subscript-wrapper {
@@ -841,11 +854,11 @@ textarea {
 .alert {
   color: red;
   font-weight: 900;
-  font-size: 30pt;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .input-height {
-  min-height: 3.8vh !important;
+  min-height: 2.4rem !important;
 }
 
 /* ---------- Responsive Layout Tweaks ---------- */
@@ -862,7 +875,6 @@ textarea {
   }
 
   .login-container {
-    margin-top: 6vh !important;
     width: min(360px, 94vw) !important;
     padding: 2rem 1.5rem !important;
   }
@@ -871,9 +883,70 @@ textarea {
     border-radius: var(--radius-md);
   }
 
+  mat-table {
+    height: auto;
+    max-height: 50vh;
+    min-width: 400px;
+  }
+
+  .twenty-rows>mat-table {
+    height: auto;
+    max-height: 50vh;
+  }
+
+  mat-header-cell,
+  mat-cell {
+    font-size: 12px !important;
+    padding: 0 8px !important;
+  }
+
+  .mat-mdc-header-cell:first-child,
+  .mat-mdc-cell:first-child {
+    padding-right: 12px !important;
+  }
+
+  .mat-mdc-header-cell:last-child,
+  .mat-mdc-cell:last-child {
+    padding-left: 12px !important;
+  }
+
   .MobileCardContainer {
     grid-template-columns: 1fr;
     row-gap: 0.25rem;
+  }
+
+  .modal-foreground {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    margin: 0 auto;
+  }
+
+  .overlay-bar {
+    font-size: 0.85rem;
+    min-height: 2.4rem;
+  }
+
+  .always-bottom {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem 0;
+  }
+
+  .page-title {
+    font-size: 1.1rem;
+  }
+
+  .nav-button {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .alert {
+    font-size: 1.5rem;
   }
 }
 
@@ -888,7 +961,16 @@ textarea {
   }
 
   .login-container {
-    margin-top: 8vh !important;
+    width: min(400px, 90vw) !important;
+  }
+
+  .modal-foreground {
+    width: 80vw !important;
+    max-width: 80vw !important;
+  }
+
+  mat-table {
+    min-width: 500px;
   }
 }
 

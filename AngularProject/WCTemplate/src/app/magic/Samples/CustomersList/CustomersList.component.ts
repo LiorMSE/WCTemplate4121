@@ -1,0 +1,25 @@
+import { Component } from '@angular/core';
+
+import { FormGroup } from '@angular/forms';
+import {
+  MgFormControlsAccessor,
+  MgControlName,
+  MgCustomProperties,
+} from './CustomersList.mg.controls.g';
+
+import { TaskBaseMagicComponent, magicProviders } from '@magic-xpa/angular';
+
+@Component({
+  selector: 'mga-CustomersList_CustomersList',
+  providers: [...magicProviders],
+  templateUrl: './CustomersList.component.html',
+  standalone: false,
+})
+export class CustomersList extends TaskBaseMagicComponent {
+  mgc = MgControlName;
+  mgcp = MgCustomProperties;
+  mgfc!: MgFormControlsAccessor;
+  override createFormControlsAccessor(formGroup: FormGroup) {
+    this.mgfc = new MgFormControlsAccessor(formGroup, this.magicServices);
+  }
+}

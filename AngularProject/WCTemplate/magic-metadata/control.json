@@ -1,0 +1,17 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"vMultiSelectCombo",
+		"items_list":	"1,2,3",
+		"attribute":	"A"
+	},
+	"coordinates":	{
+		"x":	286,
+		"y":	12,
+		"width":	95,
+		"height":	17
+	},
+	"hint":	null,
+	"controlType":	"E",
+	"children":	null
+}

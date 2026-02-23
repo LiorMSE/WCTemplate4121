@@ -1,0 +1,126 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"CustomerDetails",
+		"component_path":	"CustomerDetails/",
+		"component_uniquename":	"CustomerDetails_CustomerDetails"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	0,
+		"height":	325
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vActive",
+				"items_list":	"0,1,2",
+				"attribute":	"N",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	13,
+				"width":	70,
+				"height":	19
+			},
+			"hint":	null,
+			"controlType":	"D",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vCreateDate",
+				"mgformat":	"mgFormat",
+				"attribute":	"D",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	89,
+				"y":	14,
+				"width":	78,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vCreateTime",
+				"showsecs":	true,
+				"attribute":	"T",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	174,
+				"y":	14,
+				"width":	60,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vEmail",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"auto_complete_mode":	true,
+				"common_line_id":	"line40"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	40,
+				"width":	221,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vRemarks",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line67"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	67,
+				"width":	221,
+				"height":	36
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bSave",
+				"format":	"Save",
+				"common_line_id":	"line109"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	109,
+				"width":	41,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		}
+	]
+}

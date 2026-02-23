@@ -1,0 +1,110 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"CustomersCrud",
+		"window_type":	12,
+		"custom_properties":	[
+			"WindowTitle"
+		],
+		"component_path":	"CustomersCrud/",
+		"component_uniquename":	"CustomersCrud_CustomersCrud"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	676,
+		"height":	423
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vName",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line14"
+			},
+			"coordinates":	{
+				"x":	12,
+				"y":	14,
+				"width":	153,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vActive",
+				"text":	"",
+				"attribute":	"B",
+				"common_line_id":	"line14"
+			},
+			"coordinates":	{
+				"x":	171,
+				"y":	14,
+				"width":	17,
+				"height":	19
+			},
+			"hint":	null,
+			"controlType":	"C",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vEmail",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line40"
+			},
+			"coordinates":	{
+				"x":	12,
+				"y":	40,
+				"width":	153,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bSave",
+				"format":	"Save",
+				"common_line_id":	"line66"
+			},
+			"coordinates":	{
+				"x":	95,
+				"y":	66,
+				"width":	41,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bCancel",
+				"format":	"Cancel",
+				"common_line_id":	"line66"
+			},
+			"coordinates":	{
+				"x":	147,
+				"y":	66,
+				"width":	41,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		}
+	]
+}

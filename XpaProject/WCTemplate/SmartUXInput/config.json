@@ -1,0 +1,18 @@
+{
+	"create_route_map":	false,
+	"create_new_project":	false,
+	"created_menu":	false,
+	"created_views":	true,
+	"theme":	"material",
+	"output_folder":	"C:\\WCTemplate\\AngularProject",
+	"backup_current":	false,
+	"source_images_folder":	"C:\\WCTemplate\\XpaProject\\WCTemplate\\images",
+	"copy_images":	true,
+	"exposed_functionality":	true,
+	"allow_testing":	false,
+	"project_name":	"WCTemplate",
+	"web_modules":	[
+		
+	],
+	"controls_accessor_only":	false
+}

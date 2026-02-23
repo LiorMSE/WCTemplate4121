@@ -1,0 +1,75 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"StartProgram",
+		"custom_properties":	[
+			"isLoggedIn",
+			"Menu",
+			"Version"
+		],
+		"component_path":	"Main/StartProgram/",
+		"component_uniquename":	"StartProgram_StartProgram"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	372,
+		"height":	332
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bLogin",
+				"format":	"Login",
+				"common_line_id":	"line12"
+			},
+			"coordinates":	{
+				"x":	8,
+				"y":	12,
+				"width":	41,
+				"height":	23
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"MainOutlet",
+				"is_router_outlet":	true,
+				"default_outlet":	true,
+				"common_line_id":	"line64"
+			},
+			"coordinates":	{
+				"x":	8,
+				"y":	64,
+				"width":	192,
+				"height":	192
+			},
+			"hint":	null,
+			"controlType":	"F",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bMenu1",
+				"format":	"Menu1",
+				"common_line_id":	"line64"
+			},
+			"coordinates":	{
+				"x":	206,
+				"y":	64,
+				"width":	41,
+				"height":	23
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		}
+	]
+}

@@ -1,0 +1,131 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"WarningMsg",
+		"window_type":	12,
+		"component_path":	"WarningMsg/",
+		"component_uniquename":	"WarningMsg_WarningMsg"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	0,
+		"height":	325
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"pTitle",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	13,
+				"width":	356,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"pMsg",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line40"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	40,
+				"width":	356,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"pButtons",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line67"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	67,
+				"width":	216,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"pOptionalReturn",
+				"mgformat":	"mgFormat",
+				"attribute":	"N",
+				"common_line_id":	"line94"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	94,
+				"width":	12,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bBtn1",
+				"format":	{
+					"value":	"Btn1",
+					"has_exp":	true
+				},
+				"common_line_id":	"line128"
+			},
+			"coordinates":	{
+				"x":	280,
+				"y":	128,
+				"width":	41,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bBtn2",
+				"format":	{
+					"value":	"Btn2",
+					"has_exp":	true
+				},
+				"common_line_id":	"line128"
+			},
+			"coordinates":	{
+				"x":	327,
+				"y":	128,
+				"width":	41,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		}
+	]
+}

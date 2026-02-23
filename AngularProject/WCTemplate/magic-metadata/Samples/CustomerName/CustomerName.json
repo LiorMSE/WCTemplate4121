@@ -1,0 +1,88 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"CustomerName",
+		"component_path":	"CustomerName/",
+		"component_uniquename":	"CustomerName_CustomerName"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	0,
+		"height":	325
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vName",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	13,
+				"width":	70,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"ParentName",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	90,
+				"y":	13,
+				"width":	70,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bSelectParent",
+				"format":	"SelectParent",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	167,
+				"y":	13,
+				"width":	71,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bSave",
+				"format":	"Save",
+				"common_line_id":	"line40"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	40,
+				"width":	35,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		}
+	]
+}

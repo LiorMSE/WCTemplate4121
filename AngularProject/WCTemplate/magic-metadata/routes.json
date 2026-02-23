@@ -1,0 +1,31 @@
+[
+	{
+		"module_name":	"",
+		"routesArray":	[
+			{
+				"RouteName":	"CustomersList",
+				"ModuleName":	"Samples",
+				"OutletName":	"",
+				"children":	null
+			},
+			{
+				"RouteName":	"ViewCustomer",
+				"ModuleName":	"Samples",
+				"OutletName":	"",
+				"children":	null
+			},
+			{
+				"RouteName":	"CustomerPage/:pCustomerID",
+				"ModuleName":	"Samples",
+				"OutletName":	"",
+				"children":	null
+			}
+		]
+	},
+	{
+		"module_name":	"Samples",
+		"routesArray":	[
+			
+		]
+	}
+]

@@ -1,0 +1,91 @@
+[
+	{
+		"programName":	"StartProgram",
+		"isnPrg":	2,
+		"container":	"Directory",
+		"forms":	[
+			{
+				"formName":	"StartProgram",
+				"formId":	"Main/StartProgram/StartProgram",
+				"formIsn":	1,
+				"containsTableControl":	false,
+				"containsTabControl":	false,
+				"overlay":	false
+			}
+		],
+		"tasks":	[
+			
+		]
+	},
+	{
+		"programName":	"WarningMsg",
+		"isnPrg":	6,
+		"container":	"LoadOnDemandModule",
+		"forms":	[
+			{
+				"formName":	"WarningMsg",
+				"formId":	"Shared/WarningMsg/WarningMsg",
+				"formIsn":	1,
+				"containsTableControl":	false,
+				"containsTabControl":	false,
+				"overlay":	true
+			}
+		],
+		"tasks":	[
+			
+		]
+	},
+	{
+		"programName":	"CustomersList",
+		"isnPrg":	4,
+		"container":	"LoadOnDemandModule",
+		"forms":	[
+			{
+				"formName":	"CustomersList",
+				"formId":	"Samples/CustomersList/CustomersList",
+				"formIsn":	1,
+				"containsTableControl":	false,
+				"containsTabControl":	false,
+				"overlay":	false
+			}
+		],
+		"tasks":	[
+			{
+				"programName":	"CustomersListTable",
+				"isnPrg":	2,
+				"container":	"LoadOnDemandModule",
+				"forms":	[
+					{
+						"formName":	"CustomersListTable",
+						"formId":	"Samples/CustomersList/CustomersListTable/CustomersListTable",
+						"formIsn":	1,
+						"containsTableControl":	true,
+						"containsTabControl":	false,
+						"overlay":	false
+					}
+				],
+				"tasks":	[
+					
+				]
+			}
+		]
+	},
+	{
+		"programName":	"CustomersCrud",
+		"isnPrg":	5,
+		"container":	"LoadOnDemandModule",
+		"forms":	[
+			{
+				"formName":	"CustomersCrud",
+				"formId":	"Samples/CustomersCrud/CustomersCrud",
+				"formIsn":	1,
+				"containsTableControl":	false,
+				"containsTabControl":	false,
+				"overlay":	true
+			}
+		],
+		"tasks":	[
+			
+		]
+	}
+]

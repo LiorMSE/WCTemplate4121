@@ -1,0 +1,17 @@
+<UL>
+  <LI *ngFor="let item of _source">
+    <span *ngIf="item.Menus" (click)="liToggle(item,$event)">
+
+      <div class="father_li" (click)="ToggleList($event)">
+        {{item.Name}}
+        <i class="fa fa-angle-down dropdownIcon"></i>
+      </div>
+      <side-menu [source]="item.Menus" [class.onOff]="!item.isOpen"></side-menu>
+    </span>
+    <a *ngIf="!item.Menus" [routerLink]=item.url (click)="aClick($event)">
+      <div class="child_li">
+        {{item.Name}}
+      </div>
+    </a>
+  </LI>
+</UL>

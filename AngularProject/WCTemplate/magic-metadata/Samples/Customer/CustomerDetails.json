@@ -1,0 +1,104 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"CustomerDetails",
+		"window_type":	12,
+		"component_path":	"Customer/",
+		"component_uniquename":	"Customer_CustomerDetails"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	0,
+		"height":	325
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"CustomerName",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line13"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	13,
+				"width":	319,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bCustomerName",
+				"format":	"CustomerName",
+				"common_line_id":	"line38"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	39,
+				"width":	82,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bCustomerDetails",
+				"format":	"CustomerDetails",
+				"common_line_id":	"line38"
+			},
+			"coordinates":	{
+				"x":	101,
+				"y":	38,
+				"width":	86,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"sCustomerDetails",
+				"common_line_id":	"line66"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	66,
+				"width":	319,
+				"height":	192
+			},
+			"hint":	null,
+			"controlType":	"F",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bCancel",
+				"format":	"Cancel",
+				"common_line_id":	"line265"
+			},
+			"coordinates":	{
+				"x":	288,
+				"y":	265,
+				"width":	43,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		}
+	]
+}

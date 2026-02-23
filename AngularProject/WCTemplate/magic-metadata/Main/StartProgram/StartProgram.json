@@ -1,0 +1,131 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"StartProgram",
+		"custom_properties":	[
+			"isLoggedIn",
+			"Menu",
+			"Version"
+		],
+		"component_path":	"Main/StartProgram/",
+		"module_name":	"",
+		"component_uniquename":	"StartProgram_StartProgram"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	372,
+		"height":	332
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vUsername",
+				"mgformat":	"mgFormat",
+				"format":	"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+				"attribute":	"A",
+				"common_line_id":	"line12"
+			},
+			"coordinates":	{
+				"x":	12,
+				"y":	12,
+				"width":	137,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vPassword",
+				"mgformat":	"mgFormat",
+				"format":	"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+				"attribute":	"A",
+				"common_line_id":	"line36"
+			},
+			"coordinates":	{
+				"x":	12,
+				"y":	38,
+				"width":	137,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bLogin",
+				"format":	"Login",
+				"common_line_id":	"line36"
+			},
+			"coordinates":	{
+				"x":	163,
+				"y":	36,
+				"width":	41,
+				"height":	23
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bLogout",
+				"format":	"Logout",
+				"common_line_id":	"line36"
+			},
+			"coordinates":	{
+				"x":	206,
+				"y":	36,
+				"width":	41,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"MainOutlet",
+				"is_router_outlet":	true,
+				"default_outlet":	true,
+				"common_line_id":	"line64"
+			},
+			"coordinates":	{
+				"x":	12,
+				"y":	64,
+				"width":	192,
+				"height":	192
+			},
+			"hint":	null,
+			"controlType":	"F",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bMenu1",
+				"format":	"Menu1",
+				"common_line_id":	"line64"
+			},
+			"coordinates":	{
+				"x":	206,
+				"y":	64,
+				"width":	41,
+				"height":	23
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		}
+	]
+}

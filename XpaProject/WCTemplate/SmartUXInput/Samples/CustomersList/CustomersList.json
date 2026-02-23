@@ -1,0 +1,87 @@
+{
+	"style":	null,
+	"props":	{
+		"id":	"CustomersList",
+		"component_path":	"CustomersList/",
+		"component_uniquename":	"CustomersList_CustomersList"
+	},
+	"coordinates":	{
+		"x":	0,
+		"y":	0,
+		"width":	954,
+		"height":	370
+	},
+	"hint":	null,
+	"controlType":	null,
+	"children":	[
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vSearch",
+				"mgformat":	"mgFormat",
+				"attribute":	"A",
+				"common_line_id":	"line12"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	13,
+				"width":	188,
+				"height":	20
+			},
+			"hint":	null,
+			"controlType":	"T",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"vActiveFilter",
+				"items_list":	"0,1,2",
+				"attribute":	"N",
+				"common_line_id":	"line12"
+			},
+			"coordinates":	{
+				"x":	207,
+				"y":	12,
+				"width":	72,
+				"height":	19
+			},
+			"hint":	null,
+			"controlType":	"D",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"bAdd",
+				"format":	"Add",
+				"common_line_id":	"line12"
+			},
+			"coordinates":	{
+				"x":	409,
+				"y":	13,
+				"width":	41,
+				"height":	22
+			},
+			"hint":	null,
+			"controlType":	"B",
+			"children":	null
+		},
+		{
+			"style":	null,
+			"props":	{
+				"id":	"sTable",
+				"common_line_id":	"line39"
+			},
+			"coordinates":	{
+				"x":	13,
+				"y":	39,
+				"width":	437,
+				"height":	192
+			},
+			"hint":	null,
+			"controlType":	"F",
+			"children":	null
+		}
+	]
+}

@@ -1,0 +1,53 @@
+<div novalidate [formGroup]="screenFormGroup">
+  <div [magic]="mgc.CustomersList">
+
+    <div class="table-container">
+      <div class="row pb-2">
+        <div class="col-12 col-md-2">
+          <div class="searchbox-container">
+            <i class="fa fa-search"></i>
+            <input matInput type='text' matInput [magic]="mgc.vSearch" [formControlName]="mgc.vSearch" mgFormat
+              placeholder="חפש..." class="w-100" [pollTime]="400">
+          </div>
+        </div>
+
+        <div class="col-4 col-md-1 px-2">
+          <!-- no-parent class is used for elements without a parent element to inherit background color from -->
+          <mat-form-field appearance="outline" class="w-100 no-parent">
+            <mat-label>פעיל</mat-label>
+            <mat-select [magic]="mgc.vActiveFilter" [formControlName]="mgc.vActiveFilter">
+              <mat-option *ngFor="let o of mg.getItemListValues(mgc.vActiveFilter);" [value]="o.index">
+                {{o.displayValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- MutliSelect Example -->
+        <!-- <div class="col-5 col-md-1">
+                    <mat-form-field appearance="outline" class="w-100 no-parent">
+                        <mat-label>בחירה מרובה</mat-label>
+                        <mat-select [magic]="mgc.vMultiSelectCombo" [formControlName]="mgc.vMultiSelectCombo" multiple>
+                            <mat-option *ngFor="let o of mg.getItemListValues(mgc.vMultiSelectCombo);"
+                                [value]="o.index">
+                                {{o.displayValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div> -->
+
+        <!-- This div is set to col-md-3 to match the width of the table below at col-6 -->
+        <div class="col-3 col-md-3 px-1">
+          <button class="table-header-button" [magic]="mgc.bAdd">
+            <i class="fa-solid fa-circle-plus"></i>
+            <label class="header-button-label">הוספה</label>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <magic-subform [magic]="mgc.sTable" class="col-12 col-md-6">
+        </magic-subform>
+      </div>
+    </div>
+  </div>
+</div>

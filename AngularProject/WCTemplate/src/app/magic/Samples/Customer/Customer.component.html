@@ -1,0 +1,38 @@
+<div novalidate [formGroup]="screenFormGroup">
+  <div [magic]="mgc.Customer">
+
+    <div class="overlay-bar">
+      <span>
+        תיק לקוח {{mg.getValue(mgc.CustomerName)}}
+      </span>
+    </div>
+
+    <!--
+            Dynamic grid class, simply state the template column amount to be repeated in the inline styling.
+            We use it here since we will add more buttons later as we develop the application.
+         -->
+    <div class="grid mt-3" style="--columns: 2; padding: 0 2vw">
+
+      <button class="nav-button" (click)="ToggleSelected('CustomerDetails')" [magic]="mgc.bCustomerDetails"
+        id='CustomerDetails' [disabled]="mg.isDisabled(mgc.bCustomerDetails)">
+        פרטי לקוח
+      </button>
+
+      <button class="nav-button" (click)="ToggleSelected('CustomerName')" [magic]="mgc.bCustomerName" id='CustomerName'
+        [disabled]="mg.isDisabled(mgc.bCustomerName)">
+        שם לקוח
+      </button>
+    </div>
+
+    <hr style="margin-top: 0">
+
+    <magic-subform [magic]="mgc.sCustomerDetails">
+    </magic-subform>
+
+    <div class="buttons-container always-bottom">
+      <button class="action-button cancel-button" [magic]="mgc.bCancel">
+        יציאה
+      </button>
+    </div>
+  </div>
+</div>

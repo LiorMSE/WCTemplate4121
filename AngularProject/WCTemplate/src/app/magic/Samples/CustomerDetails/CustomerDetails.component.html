@@ -1,0 +1,92 @@
+<div novalidate [formGroup]="screenFormGroup">
+  <div [magic]="mgc.CustomerDetails">
+
+    <div class="row">
+      <!-- We've used px-1 to add padding to each cell to get the same effect of css gap property -->
+      <div class="col-3 px-1">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>אימייל</mat-label>
+          <input matInput type='text' [magic]="mgc.vEmail" [formControlName]="mgc.vEmail" [matAutocomplete]="vEmail"
+            mgFormat maxlength="100">
+          <button *ngIf="mg.getValue(mgc.vEmail)" matSuffix mat-icon-button
+            (click)="mg.setValueToControl(mgc.vEmail,'')" matTooltip="ניקוי תוכן">
+            <i class="fa fa-close"></i>
+          </button>
+          <mat-autocomplete #vEmail="matAutocomplete" [magic]="mgc.vEmail">
+            <mat-option *ngFor="let o of mg.getFilteredList(mgc.vEmail);" [value]="o.displayValue">
+              {{o.displayValue}}
+            </mat-option>
+          </mat-autocomplete>
+          <mgError [magic]="mgc.vEmail"></mgError>
+        </mat-form-field>
+      </div>
+
+      <div class="col-2 px-1">
+        <mat-form-field [magic]="mgc.vCreateDate" appearance="outline" class="w-100">
+          <mat-label>תאריך יצירה</mat-label>
+          <input matInput [matDatepicker]="vCreateDate" [magic]="mgc.vCreateDate" [formControlName]="mgc.vCreateDate"
+            mgFormat>
+          <mat-datepicker-toggle matSuffix [for]="vCreateDate"></mat-datepicker-toggle>
+          <mat-datepicker #vCreateDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-2 px-1">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>שעת יצירה</mat-label>
+          <input matInput [magic]="mgc.vCreateTime" [formControlName]="mgc.vCreateTime" [maskito]="mg.hhmmss">
+        </mat-form-field>
+      </div>
+      <div class="col-2 px-1">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>פעיל</mat-label>
+          <mat-select [magic]="mgc.vActive" [formControlName]="mgc.vActive">
+            <mat-option *ngFor="let o of mg.getItemListValues(mgc.vActive);" [value]="o.index">
+              {{o.displayValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-1 px-1">
+        <mat-checkbox [magic]="mgc.vActive" [formControlName]="mgc.vActive">
+          פעיל
+        </mat-checkbox>
+      </div>
+      <div class="col-2 px-1">
+        <button class="action-button input-height" [magic]="mgc.bSave">
+          שמירה
+        </button>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-12 px-1 mb-2">
+        <!--
+                    To enable the use of mat-accordion you must import it to the magic.gen.lib.module
+                    under the same folder where it's uses.
+
+                    multi declaration: allows multiple expansion panels to be opened at once
+                -->
+        <mat-accordion multi>
+          <!--
+                        expanded declaration: sets the default state as expanded
+                    -->
+          <mat-expansion-panel direction="rtl" expanded>
+            <mat-expansion-panel-header style="display:flex">
+              <mat-panel-title>הרחבת הערות</mat-panel-title>
+              <!-- Optional icon in the panel title -->
+              <!-- <mat-panel-description style="flex-grow: 0 !important;">
+                                <i class="fa fa-edit"></i>
+                            </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>הערות</mat-label>
+              <textarea matInput type='text' [magic]="mgc.vRemarks" [formControlName]="mgc.vRemarks" mgFormat
+                maxlength="250" rows="8"></textarea>
+            </mat-form-field>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>

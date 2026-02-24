@@ -1,47 +1,120 @@
 <div novalidate [formGroup]="screenFormGroup">
   <div [magic]="mgc.CustomerPage">
     <div *ngIf="mg.getVisible(mgc.ErrorMessage)=='visible'; else customerExists">
-      <label class="page-title alert">לקוח לא קיים</label>
-
+      <div class="detail-page">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-5">
+          <div class="alert-card">
+            <div class="alert-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+            </div>
+            <label class="page-title alert">לקוח לא קיים</label>
+          </div>
+        </div>
+      </div>
     </div>
 
     <ng-template #customerExists>
-      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-        <label class="page-title">פרטי הלקוח</label>
-        <div class="row">
-          <!-- We've used px-1 to add padding to each cell to get the same effect of css gap property -->
-          <div class="col-12 px-1">
-            <mat-form-field appearance="outline" class="w-100">
-              <mat-label>שם</mat-label>
-              <input matInput type='text' [value]="mg.getValue(mgc.CustomerName)" mgFormat readonly>
-            </mat-form-field>
+      <div class="detail-page">
+        <!-- Page Header -->
+        <div class="detail-header">
+          <div class="detail-header-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
           </div>
+          <div class="detail-header-text">
+            <label class="page-title">פרטי הלקוח</label>
+          </div>
+        </div>
 
-          <div class="col-12 col-sm-9 px-1">
-            <mat-form-field appearance="outline" class="w-100">
-              <mat-label>אימייל</mat-label>
-              <input matInput type='text' [value]="mg.getValue(mgc.CustomerEmail)" mgFormat readonly>
-            </mat-form-field>
-          </div>
-          <div class="col-12 col-sm-3 px-1 d-flex align-items-center">
-            <mat-checkbox [magic]="mgc.IsActive" [formControlName]="mgc.IsActive" class="disabled-input">
-              פעיל
-            </mat-checkbox>
-          </div>
+        <!-- Cards Grid -->
+        <div class="col-12 col-lg-8 col-xl-7">
+          <div class="cards-grid">
 
-          <div class="col-12 col-sm-6 px-1">
-            <mat-form-field [magic]="mgc.CustomerCreateDate" appearance="outline" class="w-100">
-              <mat-label>תאריך יצירה</mat-label>
-              <input matInput [matDatepicker]="CustomerCreateDate" [value]="mg.getValue(mgc.CustomerCreateDate)"
-                readonly mgFormat>
-              <mat-datepicker #CustomerCreateDate></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="col-12 col-sm-6 px-1">
-            <mat-form-field appearance="outline" class="w-100">
-              <mat-label>שעת יצירה</mat-label>
-              <input matInput [value]="mg.getValue(mgc.CustomerCreateTime)" [maskito]="mg.hhmmss" readonly>
-            </mat-form-field>
+            <!-- Personal Info Card -->
+            <div class="detail-card detail-card--full">
+              <div class="card-header">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <span class="card-title">פרטים אישיים</span>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-8 px-1">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>שם</mat-label>
+                    <input matInput type='text' [value]="mg.getValue(mgc.CustomerName)" mgFormat readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-4 px-1 d-flex align-items-center">
+                  <div class="status-badge">
+                    <span class="badge-dot"></span>
+                    <mat-checkbox [magic]="mgc.IsActive" [formControlName]="mgc.IsActive" class="disabled-input">
+                      פעיל
+                    </mat-checkbox>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Details Card -->
+            <div class="detail-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <span class="card-title">פרטי קשר</span>
+              </div>
+              <div class="row">
+                <div class="col-12 px-1">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>אימייל</mat-label>
+                    <input matInput type='text' [value]="mg.getValue(mgc.CustomerEmail)" mgFormat readonly>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <!-- Account Info Card -->
+            <div class="detail-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <span class="card-title">פרטי חשבון</span>
+              </div>
+              <div class="row">
+                <div class="col-12 px-1">
+                  <mat-form-field [magic]="mgc.CustomerCreateDate" appearance="outline" class="w-100">
+                    <mat-label>תאריך יצירה</mat-label>
+                    <input matInput [matDatepicker]="CustomerCreateDate"
+                      [value]="mg.getValue(mgc.CustomerCreateDate)" readonly mgFormat>
+                    <mat-datepicker #CustomerCreateDate></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 px-1">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>שעת יצירה</mat-label>
+                    <input matInput [value]="mg.getValue(mgc.CustomerCreateTime)" [maskito]="mg.hhmmss" readonly>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

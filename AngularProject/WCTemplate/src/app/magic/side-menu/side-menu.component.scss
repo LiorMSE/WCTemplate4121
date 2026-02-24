@@ -12,58 +12,75 @@ a {
 .father_li {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   text-decoration: none;
   font-size: 13pt;
-  color: var(--mainColor);
-  background-color: #FFFFFF;
-  display: block;
+  color: var(--mainColor, #1a1f36);
+  background-color: #ffffff;
   cursor: pointer;
   text-align: right;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-bottom: 5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  transition: background-color 0.18s ease,
+              color 0.18s ease;
 }
 
 .father_li:hover {
-  background-color: #EDF3F9;
+  background-color: var(--primary-softer, #edf2ff);
+  color: var(--primary, #4c6ef5);
 }
 
 .father_li.active {
-  background-color: #EDF3F9;
+  background-color: var(--primary-softer, #edf2ff);
   font-weight: 700;
-  border-inline-start: 3px solid var(--primary, #3282ea);
+  border-inline-start: 3px solid var(--primary, #4c6ef5);
+  color: var(--primary, #4c6ef5);
 }
 
 .child_li {
   font-size: 13pt;
-  color: rgb(42, 42, 53);
+  color: var(--text-secondary, #4a5068);
   text-align: right;
   text-decoration: none;
   margin: 0 !important;
-  padding: 5px 10px;
+  padding: 6px 12px;
   width: 100%;
   background-color: transparent !important;
-  margin-bottom: 4px !important;
-  margin: 0;
+  margin-bottom: 2px !important;
+  border-radius: 6px;
+  transition: background-color 0.18s ease,
+              color 0.18s ease,
+              padding-right 0.18s ease;
 }
 
 .child_li:hover {
-  background-color: #EDF3F9 !important;
-  font-weight: bold;
+  background-color: var(--primary-softer, #edf2ff) !important;
+  color: var(--primary, #4c6ef5);
+  font-weight: 600;
+  padding-right: 16px;
 }
 
 .selected {
-  background-color: #EDF3F9 !important;
+  background-color: var(--primary-soft, #dbe4ff) !important;
+  color: var(--primary, #4c6ef5) !important;
+  font-weight: 700;
 }
 
 .dropdownIcon {
   float: left;
-  font-size: 25px;
+  font-size: 22px;
+  color: var(--text-muted, #8b92a8);
+  transition: transform 0.2s ease;
+}
+
+.father_li.active .dropdownIcon {
+  color: var(--primary, #4c6ef5);
 }
 
 ul {
   list-style-type: none;
-  padding: 1px;
+  padding: 2px;
 }
 
 .onOff {

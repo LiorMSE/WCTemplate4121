@@ -2,41 +2,42 @@
   <div [magic]="mgc.CustomersList">
 
     <div class="table-container">
-      <div class="row pb-2 align-items-center">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2 mb-md-0">
-          <div class="searchbox-container">
-            <i class="fa fa-search"></i>
-            <input matInput type='text' matInput [magic]="mgc.vSearch" [formControlName]="mgc.vSearch" mgFormat
-              placeholder="חפש..." class="w-100" [pollTime]="400">
+      <div class="d-flex flex-wrap pb-2 align-items-center justify-content-between gap-2">
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <div style="min-width: 200px; max-width: 280px; flex: 1;">
+            <div class="searchbox-container">
+              <i class="fa fa-search"></i>
+              <input matInput type='text' matInput [magic]="mgc.vSearch" [formControlName]="mgc.vSearch" mgFormat
+                placeholder="חפש..." class="w-100" [pollTime]="400">
+            </div>
           </div>
+
+          <div style="min-width: 140px; max-width: 180px;">
+            <!-- no-parent class is used for elements without a parent element to inherit background color from -->
+            <mat-form-field appearance="outline" class="w-100 no-parent">
+              <mat-label>פעיל</mat-label>
+              <mat-select [magic]="mgc.vActiveFilter" [formControlName]="mgc.vActiveFilter">
+                <mat-option *ngFor="let o of mg.getItemListValues(mgc.vActiveFilter);" [value]="o.index">
+                  {{o.displayValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- MutliSelect Example -->
+          <!-- <div style="min-width: 140px; max-width: 180px;">
+            <mat-form-field appearance="outline" class="w-100 no-parent">
+              <mat-label>בחירה מרובה</mat-label>
+              <mat-select [magic]="mgc.vMultiSelectCombo" [formControlName]="mgc.vMultiSelectCombo" multiple>
+                <mat-option *ngFor="let o of mg.getItemListValues(mgc.vMultiSelectCombo);" [value]="o.index">
+                  {{o.displayValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div> -->
         </div>
 
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2 px-2 mb-2 mb-md-0">
-          <!-- no-parent class is used for elements without a parent element to inherit background color from -->
-          <mat-form-field appearance="outline" class="w-100 no-parent">
-            <mat-label>פעיל</mat-label>
-            <mat-select [magic]="mgc.vActiveFilter" [formControlName]="mgc.vActiveFilter">
-              <mat-option *ngFor="let o of mg.getItemListValues(mgc.vActiveFilter);" [value]="o.index">
-                {{o.displayValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <!-- MutliSelect Example -->
-        <!-- <div class="col-5 col-md-1">
-                    <mat-form-field appearance="outline" class="w-100 no-parent">
-                        <mat-label>בחירה מרובה</mat-label>
-                        <mat-select [magic]="mgc.vMultiSelectCombo" [formControlName]="mgc.vMultiSelectCombo" multiple>
-                            <mat-option *ngFor="let o of mg.getItemListValues(mgc.vMultiSelectCombo);"
-                                [value]="o.index">
-                                {{o.displayValue}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div> -->
-
-        <div class="col-6 col-sm-2 col-md-2 col-lg-2 px-1">
+        <div>
           <button class="table-header-button" [magic]="mgc.bAdd">
             <i class="fa-solid fa-circle-plus"></i>
             <label class="header-button-label">הוספה</label>

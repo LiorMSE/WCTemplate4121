@@ -14,11 +14,11 @@
 
   // ── Surfaces ──
   --surface: #ffffff;
-  --surface-muted: #f5f6fa;
+  --surface-muted: #f6f7f9;
   --surface-elevated: #ffffff;
-  --surface-tinted: #f8f9ff;
-  --border-color: #e1e4ed;
-  --border-light: #eff1f6;
+  --surface-tinted: #f9fafc;
+  --border-color: #e1e3ea;
+  --border-light: #eff0f4;
 
   // ── Text ──
   --text-main: #1a1f36;
@@ -51,11 +51,12 @@
   --inside-table-border-radius: 14px;
   --outside-table-border-radius: 14px;
   --table-header-color: #4a5068;
-  --table-header-bg: linear-gradient(180deg, #f8f9fc 0%, #edf2ff 100%);
+  --table-header-bg: linear-gradient(180deg, #f5f7fd 0%, #ebeef8 100%);
   --TableRow: #ffffff;
   --TableRowContent: #1a1f36;
-  --TableRowHover: #f0f3ff;
-  --TableRowSelected: #dbe4ff;
+  --TableRowHover: #eef0f8;
+  --TableRowSelected: rgba(76, 110, 245, 0.08);
+  --TableRowSelectedBorder: var(--primary);
 
   // ── Overlays & checkboxes ──
   --overlaybar-bg: var(--primary);
@@ -90,12 +91,12 @@
 //  BASE RESET & TYPOGRAPHY
 // ═══════════════════════════════════════════════════════════════
 * {
-  font-family: Assistant;
+  font-family: 'Heebo', sans-serif;
   box-sizing: border-box;
 }
 
 body {
-  background: linear-gradient(170deg, #f8f9ff 0%, #f3f4fa 40%, #ebedf5 100%);
+  background: linear-gradient(170deg, #f8f9fc 0%, #f3f4f8 40%, #edeef3 100%);
   color: var(--text-main);
   min-height: 100vh;
   font-size: 14px;
@@ -187,7 +188,7 @@ body {
 .container_border { border: 1px solid var(--border-color); }
 
 .selected {
-  background: var(--TableRowSelected) !important;
+  background-color: #d6dff8 !important;
 }
 
 .table_row:hover {
@@ -240,10 +241,10 @@ body {
   background: var(--btn-gradient);
   color: var(--action-button-color);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 2.65rem;
-  padding: 0.5rem 1.5rem;
+  min-height: 2rem;
+  padding: 0.3rem 1.15rem;
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   letter-spacing: 0.015em;
   display: inline-flex;
   justify-content: center;
@@ -409,40 +410,63 @@ mgError {
 //  TABLE HEADER BUTTON
 // ═══════════════════════════════════════════════════════════════
 .table-header-button {
-  display: flex;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  align-self: center !important;
-  gap: 0.35rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 
   background: var(--btn-gradient);
   color: var(--action-button-color) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--btn-radius) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px !important;
   font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.02em;
   outline: none !important;
   cursor: pointer;
   margin: 0 0 0 0.35rem;
-  padding: 0.35rem 1rem;
-  height: 2.4rem;
+  padding: 0.45rem 1.3rem;
+  height: 2.5rem;
   box-shadow: var(--btn-shadow);
-  transition: var(--btn-transition);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  i {
+    font-size: 1.05rem;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.table-header-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
 }
 
 .table-header-button:hover {
   cursor: pointer;
   background: var(--btn-gradient-hover);
   color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
   box-shadow: var(--btn-shadow-hover);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
+
+  &::before {
+    opacity: 1;
+  }
+
+  i {
+    transform: rotate(90deg);
+  }
 }
 
 .table-header-button:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
   background: var(--btn-gradient-active);
   box-shadow: var(--btn-shadow-active);
 }
@@ -462,11 +486,14 @@ mgError {
   font-weight: 600;
   align-self: center;
   text-align: center !important;
+  cursor: pointer;
 }
 
 .header-button-label:hover {
   cursor: pointer;
 }
+
+
 
 
 // ═══════════════════════════════════════════════════════════════
@@ -505,14 +532,14 @@ mat-table {
 // -- Header --
 mat-header-row {
   background-color: inherit !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
   color: var(--table-header-color);
   border-radius: var(--inside-table-border-radius) var(--inside-table-border-radius) 0px 0px;
   border-bottom: 2px solid var(--border-color);
 }
 
 mat-header-cell {
-  font-size: 13px !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
   text-align: right !important;
   direction: rtl !important;
@@ -534,7 +561,7 @@ mat-header-cell:last-child {
 
 // -- Rows --
 mat-row {
-  font-size: 14px !important;
+  font-size: 15px !important;
   transition: background-color var(--duration-fast) var(--ease-out),
               box-shadow var(--duration-fast) var(--ease-out);
   border-bottom: 1px solid var(--border-light);
@@ -546,7 +573,7 @@ mat-row:last-child mat-cell {
 }
 
 mat-cell {
-  font-size: 14px !important;
+  font-size: 15px !important;
   color: var(--TableRowContent) !important;
   white-space: nowrap !important;
   border-bottom: 0 !important;
@@ -594,7 +621,7 @@ mat-row:hover {
 }
 
 mat-row.selected {
-  background-color: var(--TableRowSelected) !important;
+  background-color: #d6dff8 !important;
   box-shadow: inset 3px 0 0 var(--primary);
 }
 
@@ -631,7 +658,7 @@ mat-paginator {
   position: relative;
   border-top: 1px solid var(--border-light);
   border-radius: 0 0 var(--inside-table-border-radius) var(--inside-table-border-radius);
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafc 100%);
   font-size: 14px;
 }
 
@@ -664,6 +691,7 @@ mat-paginator {
 .modal-background {
   opacity: 0.2 !important;
 }
+
 
 
 // ═══════════════════════════════════════════════════════════════
@@ -919,6 +947,15 @@ textarea { resize: none !important; }
 
 .icon-link:hover { cursor: pointer; }
 
+// -- FAB (Floating Action Button) — mobile only --
+.fab-add {
+  display: none;
+}
+
+.desktop-add-btn {
+  display: block;
+}
+
 
 // ═══════════════════════════════════════════════════════════════
 //  FORM FIELD UTILITY
@@ -952,15 +989,15 @@ textarea { resize: none !important; }
 //  INLINE LINK
 // ═══════════════════════════════════════════════════════════════
 .inline-link {
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
-  color: var(--primary);
+  color: var(--primary-deep);
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .inline-link:hover {
   cursor: pointer;
-  color: var(--primary-deep);
+  color: var(--primary);
   text-decoration: underline;
 }
 
@@ -977,6 +1014,10 @@ textarea { resize: none !important; }
 
 .input-height {
   min-height: 2.4rem !important;
+}
+
+.mat-mdc-text-field-wrapper{
+box-shadow: none !important;
 }
 
 
@@ -1136,6 +1177,62 @@ textarea { resize: none !important; }
   margin-bottom: 0.2rem;
 }
 
+// -- Read-only info display (label + value) --
+// Usage: display entity data in a clean, non-editable format
+.detail-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-right: 3px solid var(--primary-soft);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    border-right-color: var(--primary);
+    box-shadow: var(--shadow-sm);
+    background: var(--primary-softer);
+  }
+}
+
+.detail-info-label {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.detail-info-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.detail-info-value--muted {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-style: italic;
+}
+
+// -- Detail divider --
+.detail-divider {
+  height: 1px;
+  background: var(--border-light);
+  border: none;
+  margin: 0.5rem 0;
+}
+
+// -- Detail card accent variants --
+.detail-card--accent-top {
+  border-top: 3px solid var(--primary);
+}
+
 // -- Alert card (entity not found, errors) --
 .alert-card {
   background: var(--surface-elevated);
@@ -1243,6 +1340,17 @@ textarea { resize: none !important; }
   }
 }
 
+@keyframes fabIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
 @keyframes subtleSlideIn {
   from {
     opacity: 0;
@@ -1268,7 +1376,8 @@ textarea { resize: none !important; }
   }
 
   .action-button {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     justify-content: center;
   }
 
@@ -1345,6 +1454,49 @@ textarea { resize: none !important; }
 
   .alert {
     font-size: 1.5rem;
+  }
+
+  .desktop-add-btn {
+    display: none;
+  }
+
+  .fab-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: none;
+    background: var(--btn-gradient);
+    color: #fff;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 16px rgba(76, 110, 245, 0.35), 0 2px 6px rgba(26, 31, 54, 0.1);
+    cursor: pointer;
+    z-index: 1000;
+    transition: var(--btn-transition);
+    animation: fabIn 0.4s var(--ease-spring) both;
+
+    &:hover {
+      background: var(--btn-gradient-hover);
+      box-shadow: 0 8px 28px rgba(76, 110, 245, 0.4), 0 2px 8px rgba(26, 31, 54, 0.12);
+      transform: scale(1.08);
+    }
+
+    &:active {
+      background: var(--btn-gradient-active);
+      transform: scale(0.95);
+      box-shadow: 0 2px 8px rgba(76, 110, 245, 0.2);
+    }
+  }
+
+  // Hide FAB when a modal or mobile menu overlay is open
+  body:has(.modal-foreground) .fab-add,
+  body:has(.mobile-overlay.open) .fab-add {
+    display: none !important;
   }
 
   // Detail page responsive

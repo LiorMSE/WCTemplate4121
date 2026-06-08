@@ -2,7 +2,22 @@
   <div [magic]="mgc.CustomersList">
 
     <div class="table-container">
-      <div class="d-flex flex-wrap pb-2 align-items-center justify-content-between gap-2">
+      <div class="detail-header">
+        <div class="detail-header-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="detail-header-text">
+          <div class="page-title" style="margin-bottom: 0;">ניהול לקוחות</div>
+          <div class="detail-header-subtitle">צפייה, חיפוש ועריכת פרטי לקוחות</div>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap pb-3 align-items-center justify-content-between gap-2">
+        <!-- פילטרים בצד ימין -->
         <div class="d-flex flex-wrap align-items-center gap-2">
           <div style="min-width: 200px; max-width: 280px; flex: 1;">
             <div class="searchbox-container">
@@ -37,7 +52,8 @@
           </div> -->
         </div>
 
-        <div>
+        <!-- כפתור הוספה בצד שמאל -->
+        <div class="desktop-add-btn">
           <button class="table-header-button" [magic]="mgc.bAdd">
             <i class="fa-solid fa-circle-plus"></i>
             <label class="header-button-label">הוספה</label>
@@ -50,4 +66,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Mobile FAB -->
+  <button class="fab-add" [magic]="mgc.bAdd">
+    <i class="fa-solid fa-plus"></i>
+  </button>
 </div>

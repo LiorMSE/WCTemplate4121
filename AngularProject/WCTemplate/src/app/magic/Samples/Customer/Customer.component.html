@@ -1,41 +1,29 @@
 <div novalidate [formGroup]="screenFormGroup">
   <div [magic]="mgc.Customer">
 
-    <div class="overlay-bar">
-      <span>
-        תיק לקוח {{mg.getValue(mgc.CustomerName)}}
-      </span>
+    <div class="overlay-bar" style="position: relative; gap: 0.6rem;">
+      <span style="font-size: 0.85rem; letter-spacing: 0.04em; opacity: 0.8; font-weight: 400;">תיק לקוח</span>
+      <span style="width: 1px; height: 1rem; background: rgba(255,255,255,0.35);"></span>
+      <span style="font-size: 1.1rem; font-weight: 700; letter-spacing: 0.01em;">{{mg.getValue(mgc.CustomerName)}}</span>
+      <button [magic]="mgc.bCancel"
+        style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: #fff; cursor: pointer; font-size: 1.2rem; padding: 0.25rem; line-height: 1; opacity: 0.8; transition: opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+        <i class="fa fa-times"></i>
+      </button>
     </div>
 
-    <!--
-            Navigation tabs using Bootstrap grid for responsiveness.
-            We use it here since we will add more buttons later as we develop the application.
-         -->
-    <div class="row mt-3 px-2 px-md-3">
-      <div class="col-6 col-sm-auto px-1 mb-1">
-        <button class="nav-button w-100" (click)="ToggleSelected('CustomerDetails')" [magic]="mgc.bCustomerDetails"
-          id='CustomerDetails' [disabled]="mg.isDisabled(mgc.bCustomerDetails)">
-          פרטי לקוח
-        </button>
-      </div>
-
-      <div class="col-6 col-sm-auto px-1 mb-1">
-        <button class="nav-button w-100" (click)="ToggleSelected('CustomerName')" [magic]="mgc.bCustomerName"
-          id='CustomerName' [disabled]="mg.isDisabled(mgc.bCustomerName)">
-          שם לקוח
-        </button>
-      </div>
+    <div style="display: flex; justify-content: center; gap: 0.25rem; padding: 0.5rem 0.75rem 0; border-bottom: 1px solid var(--border-light);">
+      <button class="nav-button" (click)="ToggleSelected('CustomerDetails')" [magic]="mgc.bCustomerDetails"
+        id='CustomerDetails' [disabled]="mg.isDisabled(mgc.bCustomerDetails)">
+        פרטי לקוח
+      </button>
+      <button class="nav-button" (click)="ToggleSelected('CustomerName')" [magic]="mgc.bCustomerName"
+        id='CustomerName' [disabled]="mg.isDisabled(mgc.bCustomerName)">
+        שם לקוח
+      </button>
     </div>
-
-    <hr style="margin-top: 0">
 
     <magic-subform [magic]="mgc.sCustomerDetails">
     </magic-subform>
-
-    <div class="buttons-container always-bottom">
-      <button class="action-button cancel-button" [magic]="mgc.bCancel">
-        יציאה
-      </button>
-    </div>
   </div>
 </div>

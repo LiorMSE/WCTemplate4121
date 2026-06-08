@@ -55,14 +55,13 @@
                      (leafClick)="closeMobileMenu()"></side-menu>
         </div>
 
-        <!-- Spacer pushes footer down -->
-        <div class="mobile-overlay-spacer"></div>
-
         <!-- Footer: logout + watermark -->
         <div class="mobile-overlay-footer">
-          <div class="mobile-overlay-logout" [magic]="mgc.bLogout" (click)="closeMobileMenu()">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>התנתקות</span>
+          <div class="mobile-overlay-footer-top">
+            <div class="mobile-overlay-logout" [magic]="mgc.bLogout" (click)="closeMobileMenu()">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>התנתקות</span>
+            </div>
           </div>
           <div class="mobile-overlay-watermark">
             <img src="https://www.magicsoftware.com/wp-content/uploads/2018/05/magic-logo-blue@3x.png"
@@ -102,25 +101,26 @@
 
       <div class="main">
         <div class="navbar-top">
-          <div class="notifications">
-            <div [magic]="mgc.bLogout" class="icon-link">
+          <div class="navbar-top-actions">
+            <div [magic]="mgc.bLogout" class="navbar-top-btn" matTooltip="התנתקות">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </div>
-            <div>
-              <span [style.visibility]="mg.getCustomProperty('StartProgram', 'OpenTasks') == 0 ? 'hidden' : 'visible'"
-                matTooltip="ההתראות שלי">
-                <span class="badge-content ">
-                  {{ mg.getCustomProperty('StartProgram', 'OpenTasks') }}
-                </span>
+
+            <div class="navbar-top-btn notification-btn" matTooltip="ההתראות שלי">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-badge"
+                [style.display]="mg.getCustomProperty('StartProgram', 'OpenTasks') == 0 ? 'none' : 'flex'">
+                {{ mg.getCustomProperty('StartProgram', 'OpenTasks') }}
               </span>
-
-              <i class="fa-regular fa-bell icon"></i>
             </div>
+          </div>
 
-
-            <span class="splitter" style="color: var(--border-color)">|</span>
-            <label class="employee d-flex align-items-center">
-              <b>שלום,</b>&nbsp;[username here] 👋🏼
+          <div class="navbar-top-user">
+            <div class="navbar-top-avatar">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <label class="navbar-top-greeting">
+              <b>שלום,</b>&nbsp;[username here]
             </label>
           </div>
         </div>

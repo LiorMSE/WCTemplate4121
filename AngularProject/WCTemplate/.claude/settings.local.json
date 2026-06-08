@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx ng build:*)"
+      "Bash(npx ng build:*)",
+      "Bash(find \"c:/WCTemplate/AngularProject/WCTemplate/src\" -name \"*.component.html\" -exec grep -l \"modal-foreground\\\\|modal-background\" {} ;)",
+      "Bash(find \"c:/WCTemplate/AngularProject/WCTemplate/src\" -name \"*.scss\" -exec grep -l \"modal-background\\\\|modal-foreground\" {} ;)"
     ]
   }
 }
